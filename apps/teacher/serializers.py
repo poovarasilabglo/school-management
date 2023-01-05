@@ -7,7 +7,8 @@ class TeacherRegisterSerializers(serializers.ModelSerializer):
     user = TeacherSerializer(required = True)
     class Meta:
         model = Teacher
-        fields = ('user',
+        fields = ('id',
+                  'user',
                   'teacher_id',
                   'name',
                   'image',

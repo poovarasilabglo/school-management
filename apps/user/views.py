@@ -12,8 +12,7 @@ from drf_yasg import openapi
 ''' change_password '''
 from rest_framework import generics
 from apps.user.models import User
-from apps.user.serializers import ChangePasswordSerializer
-#from rest_framework.permissions import IsAuthenticated  
+from apps.user.serializers import ChangePasswordSerializer 
 from rest_framework.response import Response
 
 
@@ -63,8 +62,7 @@ class MyTokenObtainPairView(TokenObtainPairView):
 class ChangePasswordView(generics.UpdateAPIView):
     serializer_class = ChangePasswordSerializer
     model = User
-    #permission_classes = (IsAuthenticated,)
-
+    
     def get_object(self, queryset=None):
         obj = self.request.user
         return obj

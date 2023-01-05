@@ -24,6 +24,7 @@ class TimeStampedModel(models.Model):
 
 class Student(TimeStampedModel):
     user = models.OneToOneField(User, on_delete= models.CASCADE)
+    teacher = models.ForeignKey(Teacher, on_delete= models.CASCADE)
     student_id = models.CharField(max_length= 30, unique= True)
     name = models.CharField(max_length= 30)
     profile_picture = models.ImageField(upload_to= "images/")
@@ -43,8 +44,8 @@ class Student(TimeStampedModel):
 
 class Subject(models.Model):
     student = models.ForeignKey(Student, on_delete= models.CASCADE)
-    teacher = models.ForeignKey(Teacher, on_delete= models.CASCADE)
-    subject_code = models.CharField(max_length= 15,unique= True)
+    teacher = models.ForeignKey(Teacher, on_delete= models.CASCADE,null=True)
+    subject_code = models.CharField(max_length= 15)
     subject_name = models.CharField(max_length= 30)
     subject_mark = models.IntegerField()
 

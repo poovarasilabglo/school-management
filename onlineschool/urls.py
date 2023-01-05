@@ -21,5 +21,6 @@ urlpatterns = [
     path('',include('apps.user.urls')),
     path('',include('apps.student.urls')),
     path('',include('apps.teacher.urls')),
+    path('',include('apps.parent.urls')),
     path('api-auth/', include('rest_framework.urls')),
 ]
