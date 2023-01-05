@@ -1,5 +1,5 @@
 from django.contrib import admin
-from apps.student.models import Student
+from apps.student.models import Student,Subject
 
 
 class Studentadmin(admin.ModelAdmin):
@@ -15,5 +15,17 @@ class Studentadmin(admin.ModelAdmin):
                     'phone',
                     'address',
                     'std',
-                    'session_year')
+                    'session_year',
+                    'teacher')
 admin.site.register(Student,Studentadmin)
+
+
+class Subjectadmin(admin.ModelAdmin):
+    list_display = ('id',
+                    'teacher',
+                    'student',
+                    'subject_code',
+                    'subject_name',
+                    'subject_mark',
+                   )
+admin.site.register(Subject,Subjectadmin)

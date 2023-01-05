@@ -8,6 +8,8 @@ class StudentRegisterSerializers(serializers.ModelSerializer):
     class Meta:
         model = Student
         fields = ('user',
+                  'teacher',
+                  'id',
                   'name',
                   'student_id',
                   'profile_picture',
@@ -19,7 +21,9 @@ class StudentRegisterSerializers(serializers.ModelSerializer):
                   'address',
                   'std',
                   'session_year',
-                  'roll_number')
+                  'roll_number',
+                 )
+
 
     def create(self, validated_data):
         user_data = validated_data.pop("user")
@@ -28,5 +32,14 @@ class StudentRegisterSerializers(serializers.ModelSerializer):
 
 
 class SubjectSerializer(serializers.ModelSerializer):
+    student_name = serializers.CharField(source='student.user.username', read_only = True)
     class Meta:
         model = Subject
+        fields = ('id',
+                  #'teacher',
+                  'student',
+                  'student_name',
+                  'subject_code',
+                  'subject_name',
+                  'subject_mark',
+                  )

@@ -44,10 +44,11 @@ LOCAL_APPS = [
     'rest_framework_simplejwt',
     'drf_yasg',
     'rest_framework_simplejwt.token_blacklist',
+    'django_rest_passwordreset',
     'apps.user',
     'apps.student',
     'apps.teacher',
-    'django_rest_passwordreset',
+    'apps.parent',
     ]
 
 INSTALLED_APPS += LOCAL_APPS 
@@ -91,7 +92,7 @@ WSGI_APPLICATION = 'onlineschool.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'online_school',
+        'NAME': 'test',
         'USER': 'root',
         'PASSWORD': 'password',
         'HOST': 'localhost',

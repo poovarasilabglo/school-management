@@ -23,17 +23,10 @@ class User(AbstractUser):
     emp_id = models.CharField(max_length=8, unique=True)
 
     def __str__(self):
-        return self.user.username
-    
-
-class Teacher(models.Model):
-    user =  models.OneToOneField(User, on_delete = models.CASCADE)
-    emp_id = models.CharField(max_length=8, unique=True)
-    
-    def __str__(self):
         return self.user.username'''
+    
 
-#                  '''set_password'''
+ #                '''set_password'''
 
 @receiver(reset_password_token_created)
 def password_reset_token_created(sender, instance, reset_password_token, *args, **kwargs):
